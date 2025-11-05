@@ -1,0 +1,29 @@
+services:
+  gateway-service:
+    image: oven/bun:latest
+    working_dir: /app
+    volumes:
+      - ./gateway-service:/app
+    networks:
+      - graphql-network
+    ports:
+      - 4002:4002
+    command: bun run dev
+    environment:
+      - YOGA_SERVICE_URL=http://yoga-service:4000/graphql
+    depends_on:
+      - yoga-service
+      
+  yoga-service:
+    image: oven/bun:latest
+    working_dir: /app
+    volumes:
+      - ./yoga-service:/app
+    networks:
+      - graphql-network
+    ports:
+      - 4000:4000
+    command: bun run dev
+networks:
+  graphql-network:
+    driver: bridge
