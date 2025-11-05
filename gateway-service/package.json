@@ -1,0 +1,19 @@
+{
+  "name": "gateway-service",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun hive-gateway supergraph -c gateway.config.ts -p 4002"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@graphql-hive/gateway": "^2.1.13",
+    "@graphql-mesh/compose-cli": "^1.5.1"
+  }
+}
