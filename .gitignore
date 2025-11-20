@@ -1,1 +1,6 @@
 .cursor/
+node_modules/
+.env
+.DS_Store
+/yoga-service/node_modules/
+/gateway-service/node_modules/

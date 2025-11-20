@@ -10,7 +10,7 @@ services:
       - 4002:4002
     command: bun run dev
     environment:
-      - YOGA_SERVICE_URL=http://yoga-service:4000/graphql
+      - YOGA_SERVICE_URL=http://yoga-service:4006/graphql
     depends_on:
       - yoga-service
       
@@ -22,8 +22,8 @@ services:
     networks:
       - graphql-network
     ports:
-      - 4000:4000
-    command: bun run dev
+      - 4006:4006
+    command: sh -c "bun install && bun run start"
 networks:
   graphql-network:
     driver: bridge
